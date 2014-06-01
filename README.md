@@ -1,4 +1,4 @@
-teste-spring
+Spring Mail Sender
 ============
 
-Projeto com exemplo de utilização do Spring Framework
+Exemplo de envio de e-mail com HTML formatado utilizando Spring Framework.
