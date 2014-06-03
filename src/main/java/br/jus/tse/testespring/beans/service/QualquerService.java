@@ -3,16 +3,16 @@ package br.jus.tse.testespring.beans.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.jus.tse.testespring.beans.dao.EleicaoDAO;
+import br.jus.tse.testespring.beans.mail.ProcbatchMailSender;
 
 @Service
-public class EleicaoService {
+public class QualquerService {
 
 	@Autowired
-	private EleicaoDAO eleicaoDAO;
+	private ProcbatchMailSender procbatchMailSender;
 	
-	public void divulgarResultados() {
-		eleicaoDAO.divulgarResultados();
+	public void executarJob() {
+		
 	}
 	
 }

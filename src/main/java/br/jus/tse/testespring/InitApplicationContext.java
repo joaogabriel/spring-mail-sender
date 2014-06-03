@@ -3,7 +3,7 @@ package br.jus.tse.testespring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import br.jus.tse.testespring.beans.controller.EleicaoController;
+import br.jus.tse.testespring.beans.service.QualquerService;
 
 public class InitApplicationContext {
 
@@ -12,9 +12,10 @@ public class InitApplicationContext {
         
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/applicationContext.xml");
         
-        EleicaoController eleicaoController = applicationContext.getBean(EleicaoController.class);
+        QualquerService qualquerService = applicationContext.getBean(QualquerService.class);
         
-        eleicaoController.divulgarResultados();
+        qualquerService.executarJob();
+        
         
     }
 	
