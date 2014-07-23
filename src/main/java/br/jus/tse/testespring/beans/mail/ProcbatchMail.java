@@ -3,11 +3,21 @@ package br.jus.tse.testespring.beans.mail;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.jus.tse.testespring.beans.grid.TabelaDinamica;
+import br.jus.tse.testespring.beans.mensagem.Mensagem;
+
 class ProcbatchMail {
 
 	private List<String> destinatariosEmDesenvolvimento;
 	private List<String> destinatariosEmProducao;
+	private List<TabelaDinamica> tabelas;
+	private List<Mensagem> mensagens;
 	private String assunto;
+	private String titulo;
+	private String descricao;
+	private String ambiente;
+	private String host;
+	private String data;
 
 	ProcbatchMail() {
 		destinatariosEmDesenvolvimento = new ArrayList<String>();
@@ -18,8 +28,7 @@ class ProcbatchMail {
 		return destinatariosEmDesenvolvimento;
 	}
 
-	public void setDestinatariosEmDesenvolvimento(
-			List<String> destinatariosEmDesenvolvimento) {
+	public void setDestinatariosEmDesenvolvimento(List<String> destinatariosEmDesenvolvimento) {
 		this.destinatariosEmDesenvolvimento = destinatariosEmDesenvolvimento;
 	}
 
