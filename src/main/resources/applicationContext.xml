@@ -19,11 +19,18 @@
 	</bean>
 	
 	<bean id="procbatchMailSender" class="">
+		<property name="ativoApenasProducao" value="true" />
 		<property name="assunto" value="" />
 		<property name="resumo" value="" />
-		<property name="destinatarios">
+		<property name="destinatariosPreProducao">
 			<list>
-				<value></value>
+				<value>joao.esteves@tse.jus.br</value>
+				<value>andre.nascimento@tse.jus.br</value>
+			</list>
+		</property>
+		<property name="destinatariosProducao">
+			<list>
+				<value>secad@tse.jus.br</value>
 			</list>
 		</property>
 		<property name="tabelas">
@@ -37,7 +44,7 @@
 						<bean class="org.springframework.beans.factory.config.MapFactoryBean">
 							<property name="sourceMap">
 								<map>
-									<entry key="COD_OBJETO" value="Codigo" />
+									<entry key="COD_OBJETO" value="Código" />
 									<entry key="DES_SITUACAO_ELEITOR" value="Situação do Eleitor" />
 								</map>
 							</property>
