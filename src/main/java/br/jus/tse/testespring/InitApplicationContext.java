@@ -9,14 +9,13 @@ public class InitApplicationContext {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-        
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/applicationContext.xml");
-        
-        QualquerService qualquerService = applicationContext.getBean(QualquerService.class);
-        
-        qualquerService.executarJob();
-        
-        
-    }
-	
+
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/applicationContext.xml");
+
+		QualquerService qualquerService = applicationContext.getBean(QualquerService.class);
+
+		qualquerService.executarJob();
+
+	}
+
 }
