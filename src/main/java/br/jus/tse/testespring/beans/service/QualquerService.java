@@ -75,7 +75,7 @@ public class QualquerService {
 		latest.put("name", "green mouse");*/
 
 		/* Get the template */
-		Template temp = cfg.getTemplate("template.ftl");
+		Template temp = cfg.getTemplate("template-outlook2007.ftl");
 
 		/* Merge data-model with template */
 //		Writer out = new OutputStreamWriter(System.out);

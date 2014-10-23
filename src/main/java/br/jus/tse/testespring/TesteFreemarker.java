@@ -39,7 +39,7 @@ public class TesteFreemarker {
 
 		/* Create a data-model */
 		Map root = new HashMap();
-		root.put("titulo", "Zãoção");
+		root.put("titulo", "ZÃ£oÃ§Ã£o");
 		/*Map latest = new HashMap();
 		root.put("latestProduct", latest);
 		latest.put("url", "products/greenmouse.html");
