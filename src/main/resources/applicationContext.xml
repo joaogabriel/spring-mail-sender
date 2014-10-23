@@ -18,6 +18,16 @@
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 	
+	<bean id="freeMarkerConfigurationFactory" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+		<property name="templateLoaderPath" value="/"/>
+		<property name="defaultEncoding" value="UTF-8"/>
+	</bean>
+	
+	<!-- 
+		Ainda:
+			* guardar informacoes de envio no banco de dados
+			* permitir enviar resultado semanalmente
+	 
 	<bean id="procbatchMailSender" class="">
 		<property name="ativoApenasProducao" value="true" />
 		<property name="assunto" value="" />
@@ -54,7 +64,7 @@
 			</list>
 		</property>
 	</bean>
-	
+	-->
 	<!-- provavel configuracao para o gmail -->
 	<!-- TODO: testar configuracao para envio com Gmail -->
 	<!--
