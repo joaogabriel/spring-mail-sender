@@ -31,10 +31,10 @@ public class QualquerService {
 		
 		try {
 			MimeMessageHelper message = new MimeMessageHelper(mailSender.createMimeMessage());
-			message.setFrom("jgs.esteves@gmail.com");
-			message.setTo("jg.cadastros@gmail.com");
-			message.setSubject("teste");
-			message.setText(getText(), true);
+			message.setFrom("secad@tse.jus.br", "Secad - Procbatch");
+			message.setTo("joao.esteves@tse.jus.br");
+			message.setSubject("Execução de Anomalias da Filiação Partidária");
+			message.setText(getHTML(), true);
 			
 			mailSender.send(message.getMimeMessage());
 		} catch (Exception e) {
@@ -43,7 +43,7 @@ public class QualquerService {
 		
 	}
 	
-	private String getText() throws Exception {
+	private String getHTML() throws Exception {
 		/*
 		 * ----------------------------------------------------------------------
 		 * -
@@ -53,7 +53,8 @@ public class QualquerService {
 		/* Create and adjust the configuration */
 		Configuration cfg = new Configuration();
 
-		cfg.setDirectoryForTemplateLoading(new File("C:\\env-dev\\git\\spring-mail-sender\\src\\main\\resources"));
+//		cfg.setDirectoryForTemplateLoading(new File("C:\\env-dev\\git\\spring-mail-sender\\src\\main\\resources"));
+		cfg.setDirectoryForTemplateLoading(new File("E:\\ambdes-extend\\ProjetosGIT\\spring-mail-sender\\src\\main\\resources"));
 		cfg.setObjectWrapper(new DefaultObjectWrapper());
 		cfg.setDefaultEncoding("UTF-8");
 		cfg.setTemplateExceptionHandler(TemplateExceptionHandler.HTML_DEBUG_HANDLER);
@@ -67,7 +68,7 @@ public class QualquerService {
 
 		/* Create a data-model */
 		Map root = new HashMap();
-		root.put("titulo", "Zãoção");
+		root.put("titulo", "Inconsistências do Filiaweb");
 		/*Map latest = new HashMap();
 		root.put("latestProduct", latest);
 		latest.put("url", "products/greenmouse.html");

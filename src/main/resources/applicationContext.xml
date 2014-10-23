@@ -18,6 +18,36 @@
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 	
+	<bean id="procbatchMailSender" class="">
+		<property name="assunto" value="" />
+		<property name="resumo" value="" />
+		<property name="destinatarios">
+			<list>
+				<value></value>
+			</list>
+		</property>
+		<property name="tabelas">
+			<list>
+				<bean class="">
+					<property name="titulo" value="" />
+					<property name="descricao" value="" />
+					<property name="indicelinhas" value="false" />
+					<property name="query" value="" />
+					<property name="colunasMap">
+						<bean class="org.springframework.beans.factory.config.MapFactoryBean">
+							<property name="sourceMap">
+								<map>
+									<entry key="COD_OBJETO" value="Codigo" />
+									<entry key="DES_SITUACAO_ELEITOR" value="Situação do Eleitor" />
+								</map>
+							</property>
+						</bean>
+					</property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
 	<!-- provavel configuracao para o gmail -->
 	<!-- TODO: testar configuracao para envio com Gmail -->
 	<!--
