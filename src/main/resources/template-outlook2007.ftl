@@ -13,8 +13,9 @@
 				<h1 style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-right:0;margin-left:0;font-family:inherit;font-weight:500;line-height:1.1;color:inherit;margin-top:20px;margin-bottom:10px;font-size:36px;" >Procbatch<small style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-weight:400;line-height:1;color:#999;font-size:65%;" > ${titulo}</small></h1>
 			</div>
 			
-			<p class="lead" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:0;margin-right:0;margin-left:0;margin-bottom:20px;font-size:16px;font-weight:200;line-height:1.4;" >Execução de script para correção de insconsistências no Filiaweb.</p>
+			<p class="lead" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin-top:0;margin-right:0;margin-left:0;margin-bottom:20px;font-size:16px;font-weight:200;line-height:1.4;" >${resumo}</p>
 			
+			<!-- http://viralpatel.net/blogs/spring-mvc-freemarker-ftl-example/ -->
 			<table class="table table-hover" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-collapse:collapse;border-spacing:0;max-width:100%;background-color:transparent;width:100%;margin-bottom:20px;" >
 				<thead style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
 					<tr style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
@@ -60,11 +61,11 @@
 					<a href="http://sticonhecimento.tse.jus.br/csele/secad" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background-color:transparent;background-image:none;background-repeat:repeat;background-position:0 0;background-attachment:scroll;color:#428bca;text-decoration:none;" >SECAD</a>
 				</ol>
 				
-				<span class="label label-success" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline;padding-top:.2em;padding-bottom:.3em;padding-right:.6em;padding-left:.6em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;background-color:#5cb85c;" >Mensagem gerada às 17:30:18 do dia 20/06/2014.</span>
+				<span class="label label-success" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline;padding-top:.2em;padding-bottom:.3em;padding-right:.6em;padding-left:.6em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;background-color:#5cb85c;" >Mensagem gerada às ${horarioEnvio} do dia ${dataEnvio}.</span>
 				<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" />
-				<span class="label label-warning" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline;padding-top:.2em;padding-bottom:.3em;padding-right:.6em;padding-left:.6em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;background-color:#f0ad4e;" >appscad24.tse.jus.br / 192.168.10.13</span>
+				<span class="label label-warning" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline;padding-top:.2em;padding-bottom:.3em;padding-right:.6em;padding-left:.6em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;background-color:#f0ad4e;" >${nomeHostServidor} - ${enderecoIPServidor}</span>
 				<br style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" />
-				<span class="label label-danger" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline;padding-top:.2em;padding-bottom:.3em;padding-right:.6em;padding-left:.6em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;background-color:#d9534f;" >Ambiente: Produção</span>
+				<span class="label label-danger" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:inline;padding-top:.2em;padding-bottom:.3em;padding-right:.6em;padding-left:.6em;font-size:75%;font-weight:700;line-height:1;color:#fff;text-align:center;white-space:nowrap;vertical-align:baseline;border-radius:.25em;background-color:#d9534f;" >Ambiente: ${ambiente}</span>
 			</div>
 		</div>
 	</body>

@@ -27,10 +27,11 @@
 		Ainda:
 			* guardar informacoes de envio no banco de dados
 			* permitir enviar resultado semanalmente
-	 
+	-->
 	<bean id="procbatchMailSender" class="">
 		<property name="ativoApenasProducao" value="true" />
 		<property name="assunto" value="" />
+		<property name="titulo" value="" />
 		<property name="resumo" value="" />
 		<property name="destinatariosPreProducao">
 			<list>
@@ -64,7 +65,7 @@
 			</list>
 		</property>
 	</bean>
-	-->
+	
 	<!-- provavel configuracao para o gmail -->
 	<!-- TODO: testar configuracao para envio com Gmail -->
 	<!--
