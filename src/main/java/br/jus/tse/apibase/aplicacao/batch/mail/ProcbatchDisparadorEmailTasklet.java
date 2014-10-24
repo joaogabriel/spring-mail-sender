@@ -20,6 +20,7 @@ public class ProcbatchDisparadorEmailTasklet {
 	@Autowired
 	private FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactory;
 	
+	@Autowired
 	private ProcbatchDisparadorEmail procbatchDisparadorEmail;
 	
 	private String nomeRementente;
@@ -46,9 +47,16 @@ public class ProcbatchDisparadorEmailTasklet {
 			dataExecucao = new Date();
 			localHost = InetAddress.getLocalHost();
 			
+			// TODO parametrizar
+			ambiente = "Produção";
+			
 			mapModel = criarMapModel();
 			
 			htmlConteudo = FreeMarkerTemplateUtils.processTemplateIntoString(freeMarkerConfigurationFactory.getObject().getTemplate(template), mapModel);
+			
+			System.out.println(htmlConteudo);
+			
+			// TODO implementar consultas
 			
 			MimeMessageHelper message = new MimeMessageHelper(mailSender.createMimeMessage());
 			message.setFrom(emailRementente, nomeRementente);
@@ -80,6 +88,10 @@ public class ProcbatchDisparadorEmailTasklet {
 		return mapModel;
 	}
 	
+	private void definirAtributosPorAmbiente() {
+		
+	}
+	
 	private String criarAssunto() {
 		String assunto = null;
 		StringBuilder assuntoComAmbiente = null;
@@ -96,20 +108,16 @@ public class ProcbatchDisparadorEmailTasklet {
 		return assunto;
 	}
 	
-	private String criarDestinatarios() {
-		StringBuilder destinatarios = new StringBuilder();
+	private String[] criarDestinatarios() {
+		String[] destinatarios = null;
 		
 		if (ambiente.equals("Produção")) {
-			for (String destinatario : procbatchDisparadorEmail.getDestinatariosProducao()) {
-				destinatarios.append(destinatario).append(";");
-			}
+			destinatarios = procbatchDisparadorEmail.getDestinatariosProducao().toArray(new String[0]);
 		} else {
-			for (String destinatario : procbatchDisparadorEmail.getDestinatariosPreProducao()) {
-				destinatarios.append(destinatario).append(";");
-			}
+			destinatarios = procbatchDisparadorEmail.getDestinatariosPreProducao().toArray(new String[0]);
 		}
 		
-		return destinatarios.toString();
+		return destinatarios;
 	}
 
 	private String getNomeHostServidor() {
@@ -170,8 +178,7 @@ public class ProcbatchDisparadorEmailTasklet {
 		this.localHost = localHost;
 	}
 
-	public void setEnderecoSistemaDesenvolvimento(
-			String enderecoSistemaDesenvolvimento) {
+	public void setEnderecoSistemaDesenvolvimento(String enderecoSistemaDesenvolvimento) {
 		this.enderecoSistemaDesenvolvimento = enderecoSistemaDesenvolvimento;
 	}
 

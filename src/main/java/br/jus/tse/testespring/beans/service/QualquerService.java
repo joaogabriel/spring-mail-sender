@@ -1,22 +1,19 @@
 package br.jus.tse.testespring.beans.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
-import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
-import br.jus.tse.testespring.beans.mail.ProcbatchMailSender;
+import br.jus.tse.apibase.aplicacao.batch.mail.ProcbatchDisparadorEmail;
+import br.jus.tse.apibase.aplicacao.batch.mail.ProcbatchDisparadorEmailTasklet;
+import br.jus.tse.testespring.beans.mail.ProcbatchMailSenderOld;
 
 @Service
 public class QualquerService {
 
 	@Autowired
-	private ProcbatchMailSender procbatchMailSender;
+	private ProcbatchMailSenderOld procbatchMailSender;
 	
 	@Autowired
 	private JavaMailSender mailSender;
@@ -24,10 +21,18 @@ public class QualquerService {
 	@Autowired
 	private FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactory;
 	
+	@Autowired
+	private ProcbatchDisparadorEmail emailTeste;
+	
+	@Autowired
+	private ProcbatchDisparadorEmailTasklet procbatchDisparadorEmailTasklet;
+	
 	public void executarJob() {
 		
 		try {
-			Map<String, String> root = new HashMap<String, String>();
+			procbatchDisparadorEmailTasklet.execute();
+			
+			/*Map<String, String> root = new HashMap<String, String>();
 			root.put("titulo", "Se você é jovem ainda");
 			// TODO parametrizar template tambem
 			String html = FreeMarkerTemplateUtils.processTemplateIntoString(freeMarkerConfigurationFactory.getObject().getTemplate("template-outlook2007.ftl"), root);
@@ -38,7 +43,7 @@ public class QualquerService {
 			message.setSubject("Execução de Anomalias da Filiação Partidária");
 			message.setText(html, true);
 			
-			mailSender.send(message.getMimeMessage());
+			mailSender.send(message.getMimeMessage());*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
