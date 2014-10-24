@@ -1,4 +1,10 @@
 Spring Mail Sender
 ============
 
-Exemplo de envio de e-mail com HTML formatado utilizando Spring Framework.
+Mecanismo para envio de e-mails baseados em templates HTML5 utilizando a plataforma Java.
+
+Tecnologias
+----------
+* [Spring Framework](http://projects.spring.io/spring-framework/)
+* [FreeMarker Java Template Engine](http://freemarker.org/)
+* [Bootstrap](http://getbootstrap.com/)
