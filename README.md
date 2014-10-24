@@ -1,7 +1,7 @@
 Spring Mail Sender
 ============
 
-Mecanismo para envio de e-mails baseados em templates HTML5 utilizando a plataforma Java.
+Mecanismo para envio de e-mails baseado em templates HTML5 utilizando a plataforma Java.
 
 Tecnologias
 ----------
