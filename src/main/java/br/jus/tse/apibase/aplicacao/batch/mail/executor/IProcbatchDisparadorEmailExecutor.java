@@ -5,7 +5,6 @@ import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.IProcbatchDisparadorEmail
 
 public interface IProcbatchDisparadorEmailExecutor {
 
-	void execute(IProcbatchDisparadorEmailTasklet disparadorEmailTasklet, IProcbatchDisparadorEmailExecutor disparadorEmailExecutor)
-		throws ProcbatchDisparadorEmailException;
+	void execute(IProcbatchDisparadorEmailTasklet disparadorEmailTasklet) throws ProcbatchDisparadorEmailException;
 	
 }

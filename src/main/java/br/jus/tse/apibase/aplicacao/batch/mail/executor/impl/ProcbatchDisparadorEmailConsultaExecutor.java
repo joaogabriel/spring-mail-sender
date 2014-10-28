@@ -12,10 +12,10 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
+import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.ConsultaEmail;
 import br.jus.tse.apibase.aplicacao.batch.mail.exception.ProcbatchDisparadorEmailException;
 import br.jus.tse.apibase.aplicacao.batch.mail.executor.IProcbatchDisparadorEmailExecutor;
 import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.IProcbatchDisparadorEmailTasklet;
-import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.impl.ProcbatchDisparadorEmailConsultaTasklet;
 
 public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDisparadorEmailExecutor {
 
@@ -25,9 +25,8 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 	@Autowired
 	private FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactory;
 	
+	// TODO não deve ser injetado
 	@Autowired
-	private IProcbatchDisparadorEmailExecutor disparadorEmailExecutor;
-	
 	private IProcbatchDisparadorEmailTasklet disparadorEmailTasklet;
 	
 	private String nomeRementente;
@@ -45,15 +44,14 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 	private String enderecoSistemaHomologacao;
 	private String enderecoSistemaProducao;
 	
-	public void execute(IProcbatchDisparadorEmailTasklet disparadorEmailTasklet, IProcbatchDisparadorEmailExecutor disparadorEmailExecutor)
-		throws ProcbatchDisparadorEmailException {
-		
+	private Integer maximoRegistrosPorConsulta;
+	
+	public void execute(IProcbatchDisparadorEmailTasklet disparadorEmailTasklet) throws ProcbatchDisparadorEmailException {
 		String htmlConteudo = null;
 		Map<String, String> mapModel = null;
 		
 		try {
-			this.disparadorEmailTasklet = disparadorEmailTasklet;
-			this.disparadorEmailExecutor = disparadorEmailExecutor;
+//			this.disparadorEmailTasklet = disparadorEmailTasklet;
 			
 			dataExecucao = new Date();
 			localHost = InetAddress.getLocalHost();
@@ -68,6 +66,7 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 			System.out.println(htmlConteudo);
 			
 			// TODO implementar consultas
+			executarConsultas();
 			
 			MimeMessageHelper message = new MimeMessageHelper(mailSender.createMimeMessage());
 			message.setFrom(emailRementente, nomeRementente);
@@ -78,6 +77,21 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 			mailSender.send(message.getMimeMessage());
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			// TODO guardar informacoes de envio no banco de dados
+		}
+	}
+
+	private void executarConsultas() {
+		Integer quantidadeRegistros = 0;
+		
+		for (ConsultaEmail consulta : disparadorEmailTasklet.getConsultas()) {
+			// executar count
+			quantidadeRegistros = 1;
+			
+			if (quantidadeRegistros < maximoRegistrosPorConsulta) {
+				// executar consulta
+			}
 		}
 	}
 
@@ -161,14 +175,6 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 		this.freeMarkerConfigurationFactory = freeMarkerConfigurationFactory;
 	}
 
-	public void setProcbatchDisparadorEmail(ProcbatchDisparadorEmailConsultaExecutor procbatchDisparadorEmail) {
-		this.disparadorEmailExecutor = procbatchDisparadorEmail;
-	}
-
-	public void setProcbatchDisparadorEmailTasklet(ProcbatchDisparadorEmailConsultaTasklet procbatchDisparadorEmailTasklet) {
-		this.disparadorEmailTasklet = procbatchDisparadorEmailTasklet;
-	}
-	
 	public void setNomeRementente(String nomeRementente) {
 		this.nomeRementente = nomeRementente;
 	}
@@ -205,4 +211,8 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 		this.enderecoSistemaProducao = enderecoSistemaProducao;
 	}
 
+	public void setMaximoRegistrosPorConsulta(Integer maximoRegistrosPorConsulta) {
+		this.maximoRegistrosPorConsulta = maximoRegistrosPorConsulta;
+	}
+	
 }

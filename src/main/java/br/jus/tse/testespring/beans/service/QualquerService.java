@@ -22,7 +22,7 @@ public class QualquerService {
 	private FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactory;
 	
 	@Autowired
-	private ProcbatchDisparadorEmailConsultaTasklet ProcbatchDisparadorEmailConsultaTasklet;
+	private ProcbatchDisparadorEmailConsultaTasklet procbatchDisparadorEmailConsultaTasklet;
 	
 	@Autowired
 	private ProcbatchDisparadorEmailConsultaExecutor procbatchDisparadorEmailConsultaExecutor;
@@ -30,7 +30,7 @@ public class QualquerService {
 	public void executarJob() {
 		
 		try {
-			procbatchDisparadorEmailConsultaExecutor.execute();
+			procbatchDisparadorEmailConsultaTasklet.execute();
 			
 			/*Map<String, String> root = new HashMap<String, String>();
 			root.put("titulo", "Se você é jovem ainda");

@@ -2,26 +2,17 @@ package br.jus.tse.apibase.aplicacao.batch.mail.tasklet.impl;
 
 import java.util.List;
 
-import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.TabelaDetalheEmail;
+import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.ConsultaEmail;
 import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.IProcbatchDisparadorEmailTasklet;
 
 public class ProcbatchDisparadorEmailConsultaTasklet extends AbstractProcbatchDisparadorEmailConsultaTasklet implements IProcbatchDisparadorEmailTasklet {
 
-	private Boolean ativoApenasProducao;
 	private String assunto;
 	private String titulo;
 	private String resumo;
 	private List<String> destinatariosPreProducao;
 	private List<String> destinatariosProducao;
-	private List<TabelaDetalheEmail> tabelas;
-
-	public Boolean getAtivoApenasProducao() {
-		return ativoApenasProducao;
-	}
-
-	public void setAtivoApenasProducao(Boolean ativoApenasProducao) {
-		this.ativoApenasProducao = ativoApenasProducao;
-	}
+	private List<ConsultaEmail> consultas;
 
 	public String getAssunto() {
 		return assunto;
@@ -64,12 +55,12 @@ public class ProcbatchDisparadorEmailConsultaTasklet extends AbstractProcbatchDi
 		this.destinatariosProducao = destinatariosProducao;
 	}
 
-	public List<TabelaDetalheEmail> getTabelas() {
-		return tabelas;
+	public List<ConsultaEmail> getConsultas() {
+		return consultas;
 	}
-
-	public void setTabelas(List<TabelaDetalheEmail> tabelas) {
-		this.tabelas = tabelas;
+	
+	public void setConsultas(List<ConsultaEmail> consultas) {
+		this.consultas = consultas;
 	}
 
 }

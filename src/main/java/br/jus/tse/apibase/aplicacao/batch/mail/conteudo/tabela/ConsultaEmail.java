@@ -2,12 +2,13 @@ package br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela;
 
 import java.util.Map;
 
-public class TabelaDetalheEmail {
+public class ConsultaEmail {
 
 	private String titulo;
 	private String descricao;
 	private String indiceLinhas;
-	private String sqlQuery;
+	private String querySql;
+	private String queryCountSql;
 	private Map<String, String> colunasMap;
 
 	public String getTitulo() {
@@ -34,12 +35,20 @@ public class TabelaDetalheEmail {
 		this.indiceLinhas = indiceLinhas;
 	}
 
-	public String getSqlQuery() {
-		return sqlQuery;
+	public String getQuerySql() {
+		return querySql;
 	}
 
-	public void setSqlQuery(String sqlQuery) {
-		this.sqlQuery = sqlQuery;
+	public void setQuerySql(String querySql) {
+		this.querySql = querySql;
+	}
+
+	public String getQueryCountSql() {
+		return queryCountSql;
+	}
+
+	public void setQueryCountSql(String queryCountSql) {
+		this.queryCountSql = queryCountSql;
 	}
 
 	public Map<String, String> getColunasMap() {

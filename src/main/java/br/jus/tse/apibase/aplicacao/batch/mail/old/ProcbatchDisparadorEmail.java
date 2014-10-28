@@ -2,7 +2,7 @@ package br.jus.tse.apibase.aplicacao.batch.mail.old;
 
 import java.util.List;
 
-import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.TabelaDetalheEmail;
+import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.ConsultaEmail;
 
 public class ProcbatchDisparadorEmail {
 
@@ -12,7 +12,7 @@ public class ProcbatchDisparadorEmail {
 	private String resumo;
 	private List<String> destinatariosPreProducao;
 	private List<String> destinatariosProducao;
-	private List<TabelaDetalheEmail> tabelas;
+	private List<ConsultaEmail> tabelas;
 	
 	public Boolean getAtivoApenasProducao() {
 		return ativoApenasProducao;
@@ -63,11 +63,11 @@ public class ProcbatchDisparadorEmail {
 		this.destinatariosProducao = destinatariosProducao;
 	}
 
-	public List<TabelaDetalheEmail> getTabelas() {
+	public List<ConsultaEmail> getTabelas() {
 		return tabelas;
 	}
 
-	public void setTabelas(List<TabelaDetalheEmail> tabelas) {
+	public void setTabelas(List<ConsultaEmail> tabelas) {
 		this.tabelas = tabelas;
 	}
 
