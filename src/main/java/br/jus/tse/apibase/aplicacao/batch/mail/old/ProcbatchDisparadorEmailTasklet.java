@@ -1,4 +1,4 @@
-package br.jus.tse.apibase.aplicacao.batch.mail;
+package br.jus.tse.apibase.aplicacao.batch.mail.old;
 
 import java.net.InetAddress;
 import java.text.SimpleDateFormat;

@@ -1,10 +1,11 @@
-package br.jus.tse.apibase.aplicacao.batch.mail;
+package br.jus.tse.apibase.aplicacao.batch.mail.tasklet.impl;
 
 import java.util.List;
 
 import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.TabelaDetalheEmail;
+import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.IProcbatchDisparadorEmailTasklet;
 
-public class ProcbatchDisparadorEmail {
+public class ProcbatchDisparadorEmailConsultaTasklet extends AbstractProcbatchDisparadorEmailConsultaTasklet implements IProcbatchDisparadorEmailTasklet {
 
 	private Boolean ativoApenasProducao;
 	private String assunto;
@@ -13,7 +14,7 @@ public class ProcbatchDisparadorEmail {
 	private List<String> destinatariosPreProducao;
 	private List<String> destinatariosProducao;
 	private List<TabelaDetalheEmail> tabelas;
-	
+
 	public Boolean getAtivoApenasProducao() {
 		return ativoApenasProducao;
 	}

@@ -5,8 +5,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 
-import br.jus.tse.apibase.aplicacao.batch.mail.ProcbatchDisparadorEmail;
-import br.jus.tse.apibase.aplicacao.batch.mail.ProcbatchDisparadorEmailTasklet;
+import br.jus.tse.apibase.aplicacao.batch.mail.executor.impl.ProcbatchDisparadorEmailConsultaExecutor;
+import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.impl.ProcbatchDisparadorEmailConsultaTasklet;
 import br.jus.tse.testespring.beans.mail.ProcbatchMailSenderOld;
 
 @Service
@@ -22,15 +22,15 @@ public class QualquerService {
 	private FreeMarkerConfigurationFactoryBean freeMarkerConfigurationFactory;
 	
 	@Autowired
-	private ProcbatchDisparadorEmail emailTeste;
+	private ProcbatchDisparadorEmailConsultaTasklet ProcbatchDisparadorEmailConsultaTasklet;
 	
 	@Autowired
-	private ProcbatchDisparadorEmailTasklet procbatchDisparadorEmailTasklet;
+	private ProcbatchDisparadorEmailConsultaExecutor procbatchDisparadorEmailConsultaExecutor;
 	
 	public void executarJob() {
 		
 		try {
-			procbatchDisparadorEmailTasklet.execute();
+			procbatchDisparadorEmailConsultaExecutor.execute();
 			
 			/*Map<String, String> root = new HashMap<String, String>();
 			root.put("titulo", "Se você é jovem ainda");
