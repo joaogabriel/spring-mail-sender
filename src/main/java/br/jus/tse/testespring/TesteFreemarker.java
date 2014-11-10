@@ -1,9 +1,10 @@
 package br.jus.tse.testespring;
 
 import java.io.File;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import freemarker.template.Configuration;
@@ -37,20 +38,41 @@ public class TesteFreemarker {
 		 */
 		/* You usually do these for many times in the application life-cycle: */
 
+		List<String> nomes = new ArrayList<String>();
+		nomes.add("Joao");
+		nomes.add("Maria");
+		nomes.add("Lulu");
+		
+		Map<String, List<String>> mapaComplexo = new HashMap<String, List<String>>();
+		mapaComplexo.put("A", nomes);
+		mapaComplexo.put("B", nomes);
+		mapaComplexo.put("C", nomes);
+		
 		/* Create a data-model */
 		Map root = new HashMap();
 		root.put("titulo", "Zãoção");
+		root.put("resumo", "Zãoção");
+		root.put("horarioEnvio", "Zãoção");
+		root.put("dataEnvio", "Zãoção");
+		root.put("nomeHostServidor", "Zãoção");
+		root.put("enderecoIPServidor", "Zãoção");
+		root.put("ambiente", "Zãoção");
+		root.put("nomes", nomes);
+		root.put("mapa", mapaComplexo);
+		root.put("param1", "ahvah");
 		/*Map latest = new HashMap();
 		root.put("latestProduct", latest);
 		latest.put("url", "products/greenmouse.html");
 		latest.put("name", "green mouse");*/
 
 		/* Get the template */
-		Template temp = cfg.getTemplate("template.ftl");
+		Template template = cfg.getTemplate("template-outlook2007.ftl");
 
 		/* Merge data-model with template */
-		Writer out = new OutputStreamWriter(System.out);
-		temp.process(root, out);
+//		Writer out = new OutputStreamWriter(System.out);
+		FileWriter fileWriter = new FileWriter("C:\\env-dev\\git\\spring-mail-sender\\src\\main\\resources\\gerado.html");
+//		template.process(root, out);
+		template.process(root, fileWriter);
 	}
 
 }
