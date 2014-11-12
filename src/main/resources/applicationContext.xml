@@ -70,7 +70,8 @@
 							<property name="sourceMap">
 								<map>
 									<entry key="COD_OBJETO" value="Código" />
-									<entry key="DES_SITUACAO_ELEITOR" value="Situação do Eleitor" />
+									<entry key="SGL_UF" value="Sigla" />
+									<entry key="DES_UF" value="Descrição" />
 								</map>
 							</property>
 						</bean>

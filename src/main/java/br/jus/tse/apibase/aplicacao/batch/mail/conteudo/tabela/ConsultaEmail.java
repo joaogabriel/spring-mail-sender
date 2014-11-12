@@ -11,6 +11,15 @@ public class ConsultaEmail {
 	private String queryCountSql;
 	private Map<String, String> colunasMap;
 
+	public ConsultaEmail() {
+		super();
+	}
+	
+	public ConsultaEmail(String titulo) {
+		super();
+		this.titulo = titulo;
+	}
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -59,4 +68,9 @@ public class ConsultaEmail {
 		this.colunasMap = colunasMap;
 	}
 
+	@Override
+	public String toString() {
+		return titulo;
+	}
+	
 }

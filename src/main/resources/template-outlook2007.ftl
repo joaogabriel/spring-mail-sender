@@ -17,14 +17,6 @@
 			
 			<!-- http://viralpatel.net/blogs/spring-mvc-freemarker-ftl-example/ -->
 			
-			<#list nomes as nome>
-        		${nome}
-			</#list>
-		    
-			<#list mapa?keys as key>
-				${key}
-			</#list>
-			
 			<#include "template-outlook2007-tabela.ftl">
 			
 			<div align="center" style="-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;" >
