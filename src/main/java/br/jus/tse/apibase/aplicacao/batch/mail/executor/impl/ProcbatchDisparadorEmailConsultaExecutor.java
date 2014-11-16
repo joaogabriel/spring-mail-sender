@@ -11,7 +11,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
@@ -19,7 +18,10 @@ import br.jus.tse.apibase.aplicacao.batch.mail.conteudo.tabela.ConsultaEmail;
 import br.jus.tse.apibase.aplicacao.batch.mail.exception.ProcbatchDisparadorEmailException;
 import br.jus.tse.apibase.aplicacao.batch.mail.executor.IProcbatchDisparadorEmailExecutor;
 import br.jus.tse.apibase.aplicacao.batch.mail.tasklet.IProcbatchDisparadorEmailTasklet;
+import br.jus.tse.testespring.beans.grid.Celula;
+import br.jus.tse.testespring.beans.grid.Linha;
 import br.jus.tse.testespring.beans.grid.NovaTabelaDinamica;
+import br.jus.tse.testespring.beans.grid.Tabela;
 
 public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDisparadorEmailExecutor {
 
@@ -252,6 +254,17 @@ public class ProcbatchDisparadorEmailConsultaExecutor implements IProcbatchDispa
 		consultas.put(c3, lista3);
 	}
 
+	private Tabela montarTabela() {
+		Tabela tabela = new Tabela();
+		Linha coluna = null;
+		Linha linha = null;
+		Celula celulaColuna = null;
+		Celula celulaLinha = null;
+		
+		
+		return tabela;
+	}
+	
 	private NovaTabelaDinamica prepararTabelaDinamica() {
 //		List<String> vals = null;
 		List<String> colunas = new ArrayList<String>();
